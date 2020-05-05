@@ -8,10 +8,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="../estilos/usuario.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <title>Insert title here</title>
 </head>
 <body>
+	<header>
+	<a href="LogoutServlet">Logout</a>
+	
+	</header>
 	<form action="" id="usuario">
 		<h1>Usuario</h1>
 		<h2>binvenido..</h2>
@@ -20,8 +25,12 @@
 		<p>Id: ${p1.cedula}</p>
 		<p>Nombre: ${p1.nombre}</p>
 		<p>Correo: ${p1.correo}</p>
-		<p>Apellido: ${p1.apellido}</p>
 
+		<p>Apellido: ${p1.apellido}</p>
+		<a href="mailto:${p1.correo}">Enviar correo a : ${p1.correo}</a>
+
+	
+3
 	</form>
 
 	<form action="TelefonoController" method="get" id="telefono">
@@ -64,15 +73,19 @@
 		<c:forEach items="${telefono}" var="telefono">
 
 			<tr>
-				<td><input type="text" name="tnumero"value="${telefono.numero}" /></td>
+				<td><input type="text" name="tnumero" value="${telefono.numero}" /></td>
 				<td><input type="text" name="ttipo" value="${telefono.tipo}" /></td>
 				<td><input type="text" name="toperadora" value="${telefono.operadora}" /></td>
-				<td><a href="ActualizarTelefono"></a></td>
+				<td><a href="tel:${telefono.numero}"><i class="fa fa-mobile-phone" style="font-size:48px;color:red"></i></a></td>
+				<td><h3><a href="ActualizarTelefono?codigo=${telefono.codigo}&correo=${p1.correo}&contrasena=${p1.contrasena}">Modiicar</a></h3></td>
+				<td><h3><a href="EliminarTelefono?codigo=${telefono.codigo}&correo=${p1.correo}&contrasena=${p1.contrasena}">Eliminar</a></h3></td>
+				
 			</tr>
 
 		</c:forEach>
 	</table>
 	</section>
+	
 
 
 </body>

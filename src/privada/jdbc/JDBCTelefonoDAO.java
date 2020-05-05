@@ -43,7 +43,7 @@ public class JDBCTelefonoDAO extends JDBCGenericDAO<Telefono, Integer> implement
 	@Override
 	public void update(Telefono telefono) {
 		// TODO Auto-generated method stub
-		conexionUno.update("UPDATE Telefono SET tel_numero='"+telefono.getNumero()+"', tel_tipo= '"+telefono.getTipo()+"'. tel_operadora ='"+telefono.getOperadora()+"' WHERE tel_codigo="+telefono.getCodigo()  );
+		conexionUno.update("UPDATE Telefono SET tel_numero='"+telefono.getNumero()+"', tel_tipo= '"+telefono.getTipo()+"', tel_operadora ='"+telefono.getOperadora()+"' WHERE tel_codigo="+telefono.getCodigo()  );
 		
 	}
 

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import privada.dao.DAOFactory;
 import privada.dao.TelefonoDAO;
 import privada.modelo.Telefono;
+import privada.modelo.Usuario;
 
 /**
  * Servlet implementation class ActualizarTelefono
@@ -31,12 +32,23 @@ public class ActualizarTelefono extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String url="";
 		Telefono telefono= new Telefono();
-		t
+		Usuario usuario = new Usuario();
 		TelefonoDAO t= DAOFactory.getFactory().getTelefonoDAO();
-		
-		
-	
+		telefono.setCodigo(Integer.valueOf(request.getParameter("codigo")));
+		usuario.setCorreo(request.getParameter("correo"));
+		usuario.setContrasena(request.getParameter("contrasena"));
+		try {
+			request.setAttribute("usuario", usuario);
+			request.setAttribute("telefono", telefono);
+			url="/JSPs/actualizarTelefono.jsp";
+		}catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("error al redirigir");
+		}
+		getServletContext().getRequestDispatcher(url).forward(request, response);
+
 	
 	}
 
