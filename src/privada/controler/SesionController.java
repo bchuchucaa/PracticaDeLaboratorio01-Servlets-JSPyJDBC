@@ -55,14 +55,18 @@ public class SesionController extends HttpServlet {
 		DAOFactory factory = new JDBCDAOFactory();
 		usuario = factory.getUsuarioDAO().logIn(usuario);
 		HttpSession session = request.getSession();
-		telefon.setUsuario(usuario.getCedula());
 		List<Telefono> telefonos = new ArrayList<Telefono>();
 		List<Telefono> telfs = new ArrayList<Telefono>();
-		TelefonoDAO t= DAOFactory.getFactory().getTelefonoDAO();
-		telefonos=t.buscarPorIdTelfono(usuario.getCedula());
-		for(Telefono telefono : telefonos) {
-			telfs.add(telefono);
+		if(usuario.getCedula()!=null) {
+			telefon.setUsuario(usuario.getCedula());
+			
+			TelefonoDAO t= DAOFactory.getFactory().getTelefonoDAO();
+			telefonos=t.buscarPorIdTelfono(usuario.getCedula());
+			for(Telefono telefono : telefonos) {
+				telfs.add(telefono);
+			}
 		}
+	
 		if (usuario != null) {
 			try {
 
