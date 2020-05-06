@@ -29,40 +29,34 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/Proyectov6/css/usuario/util.css">
 	<link rel="stylesheet" type="text/css" href="/Proyectov6/css/usuario/main.css">
+	
+		<link rel="stylesheet" type="text/css" href="/Proyectov6/css/usuario/tabla.css">
+				<link rel="stylesheet" type="text/css" href="/Proyectov6/css/usuario/menu.css">
 <!--===============================================================================================-->
 <title>Insert title here</title>
 </head>
 <body>
+		<c:set var="p1" value="${requestScope['usuario']}" />
+		<c:set var="t1" value="${requestScope['telefono']}" />
 	<header>
-	<a href="LogoutServlet">Logout</a>
+
 	
 	</header>
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	<header id="header">
+	<nav class="links" style="--items: 5;">
+		<a href="#">Home</a>
+		<a href="#">${p1.nombre}</a>
+		
+		<a href="#">${p1.apellido}</a>
+		<a href="mailto:${p1.correo}">Enviar correo a : ${p1.correo}</a>
+		<a href="LogoutServlet">Logout</a>
+		<span class="line"></span>
+	</nav>
+</header>
 	
 	<form action="" id="usuario">
-		<h1>Usuario</h1>
-		<h2>binvenido..</h2>
-		<c:set var="p1" value="${requestScope['usuario']}" />
-		<c:set var="t1" value="${requestScope['telefono']}" />
-		<p>Id: ${p1.cedula}</p>
-		<p>Nombre: ${p1.nombre}</p>
-		<p>Correo: ${p1.correo}</p>
 
-		<p>Apellido: ${p1.apellido}</p>
-		<a href="mailto:${p1.correo}">Enviar correo a : ${p1.correo}</a>
 		
 		
 	</form>
@@ -71,11 +65,17 @@
 		
 	<form action="TelefonoController" method="get" id="telefono">
 			<div class="limiter">
+		
 		<div class="container-login100">
+			TUS DATOS<br>
+			Id: ${p1.cedula}<br>
+			Nombre: ${p1.nombre}<br>
+			Apellido: ${p1.apellido}<br>
+			Correo: ${p1.correo}<br>
 			<div class="wrap-login100">
-				<div class="login100-form-title" style="background-image: url(images/bg-01.jpg);">
+				<div class="login100-form-title" style="background-image: url(/Proyectov6/img/bg-02.jpg);">
 					<span class="login100-form-title-1">
-						Sign In
+						Agregar Telefono
 					</span>
 				</div>
 
@@ -94,7 +94,7 @@
 					
 								<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
 						<span class="label-input100">Operadora</span>
-						<input class="input100" type="text" name="tel_operadora" placeholder="EIngresa la operadora">
+						<input class="input100" type="text" name="tel_operadora" placeholder="Ingresa la operadora">
 						<span class="focus-input100"></span>
 					</div>
 					<p>
@@ -153,19 +153,27 @@
 		
 		
 </form>		
-		
-		
+
+
 
 	<!-- formulario para listar telefonos -->
+	
+	<br><br><br>
+	
+	<h1><span class="blue">&lt;</span>Mis<span class="blue">&gt;</span> <span class="yellow">telefonos</pan></h1>
+<h2>Estos son tus..<a href="" target="_blank">  Numeros Registrados</a></h2>
 
-	<section>
-	<table>
+<table class="container">
+	<thead>
 		<tr>
-			<td>Numero</td>
-			<td>Tipo</td>
-			<td>Numero</td>
-
+			<th><h1>Numero</h1></th>
+			<th><h1>Tipo</h1></th>
+			<th><h1>Operadora</h1></th>
+			<th><h1>Lamar</h1></th>
+			<th><h1>Modificar</h1></th>
+			<th><h1>Eliminar</h1></th>
 		</tr>
+	</thead>
 		<c:forEach items="${telefono}" var="telefono">
 
 			<tr>
@@ -179,8 +187,11 @@
 			</tr>
 
 		</c:forEach>
-	</table>
-	</section>
+	<tbody>
+		
+	</tbody>
+</table>
+
 	
 
 
