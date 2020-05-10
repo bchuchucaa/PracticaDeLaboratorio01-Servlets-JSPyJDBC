@@ -29,7 +29,35 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/Proyectov6/css/util.css">
 	<link rel="stylesheet" type="text/css" href="/Proyectov6/css/main.css">
-<title>Insert title here</title>
+	<script>
+	function numeros(){
+
+	var z = document.getElementById("cedula").value;
+	if(!/^[0-9]+$/.test(z)){
+	    alert("Porfavor ingresa solo caracteres numericos para tu numero(Permitidos: 0-9)");
+	    document.getElementById("cedula").value="";
+	  }
+}
+function soloLetras(e) {
+    key = e.keyCode || e.which;
+    tecla = String.fromCharCode(key).toLowerCase();
+    letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+    especiales = [8, 37, 39, 46];
+
+    tecla_especial = false
+    for(var i in especiales) {
+        if(key == especiales[i]) {
+            tecla_especial = true;
+            break;
+        }
+    }
+
+    if(letras.indexOf(tecla) == -1 && !tecla_especial)
+        return false;
+}
+
+</script>
+<title>Registro de usuario</title>
 </head>
 <body>
 <form action="/Proyectov6/RegistroController" method="post" id="registro">
@@ -41,26 +69,26 @@
 				</span>
 				<form class="login100-form validate-form p-b-33 p-t-5">
 					<div class="wrap-input100 validate-input" data-validate = "Ingrese su cedula">
-						<input class="input100" type="text" name="cedula" placeholder="Cedula de Usuario">
+						<input class="input100" type="text" id="cedula" minlength="10" onkeyup="return numeros(this)" name="cedula" placeholder="Cedula de usuario" required>
 						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Ingrese su nombre">
-						<input class="input100" type="text" name="nombre" placeholder="Nombre de Usuario">
+						<input class="input100" type="text" name="nombre" onkeypress="return soloLetras(event)" placeholder="Nombre de usuario" required>
 						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Ingrese sus apellidos">
-						<input class="input100" type="text" name="apellido" placeholder="Apellido del Usuario">
+						<input class="input100" type="text" onkeypress="return soloLetras(event)" name="apellido" placeholder="Apellido del usuario" required>
 						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
 					</div>
 					
 					<div class="wrap-input100 validate-input" data-validate="Ingrese su correo">
-						<input class="input100" type="email" name="correo" placeholder="Correo deL Uuario">
+						<input class="input100" type="email" name="correo" placeholder="Correo del usuario" required>
 						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate="Ingrese su contrasena">
-						<input class="input100" type="password" name="contrasena" placeholder="Elija su contrasena">
+						<input class="input100" type="password" name="contrasena" minlength="8" placeholder="Elija su contrasena" required>
 						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
 					</div>
 			

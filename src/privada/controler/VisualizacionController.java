@@ -1,28 +1,34 @@
 package privada.controler;
 
+
+
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
+
 import privada.dao.DAOFactory;
-import privada.dao.TelefonoDAO;
+import privada.dao.JDBCDAOFactory;
 import privada.modelo.Telefono;
 import privada.modelo.Usuario;
 
 /**
- * Servlet implementation class ActualizarTelefono
+ * Servlet implementation class VisualizacionController
  */
-@WebServlet("/ActualizarTelefono")
-public class ActualizarTelefono extends HttpServlet {
+@WebServlet("/VisualizacionController")
+public class VisualizacionController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ActualizarTelefono() {
+    public VisualizacionController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,27 +38,25 @@ public class ActualizarTelefono extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String url="";
-		Telefono telefono= new Telefono();
-		Usuario usuario = new Usuario();
-		TelefonoDAO t= DAOFactory.getFactory().getTelefonoDAO();
-		telefono.setCodigo(Integer.valueOf(request.getParameter("codigo")));
-		telefono.setNumero(request.getParameter("numero"));
-		telefono.setTipo(request.getParameter("tipo"));
-		telefono.setOperadora(request.getParameter("operadora"));
-		usuario.setCorreo(request.getParameter("correo"));
-		usuario.setContrasena(request.getParameter("contrasena"));
-		System.out.println(telefono.toString());
+		Telefono telefono = new Telefono();
+		DAOFactory factory = new JDBCDAOFactory();
+		String url= null;
+		ArrayList usuarios = new ArrayList();
+		for (Usuario usuario : factory.getUsuarioDAO().find()) 
+		{ 
+		System.out.println(usuario.getApellido());
+		   usuarios.add(usuario);
+		}
+
 		try {
-			request.setAttribute("usuario", usuario);
-			request.setAttribute("telefono", telefono);
-			url="/JSPs/actualizarTelefono.jsp";
+			
+			request.setAttribute("usuarios",usuarios);
+			url="/JSPs/agenda.jsp";
 		}catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("error al redirigir");
+			url="/JSPs/error.jsp";
 		}
 		getServletContext().getRequestDispatcher(url).forward(request, response);
-
 	
 	}
 

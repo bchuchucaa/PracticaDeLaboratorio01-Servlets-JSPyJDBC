@@ -51,24 +51,24 @@ public class SesionController extends HttpServlet {
 		usuario.setCorreo(request.getParameter("correo"));
 		usuario.setContrasena(request.getParameter("contrasena"));
 		request.setAttribute("Usuario", usuario);
-		out.println("<h1> Ha ingreso correctamente .... </h1>" + usuario.getApellido());
+		//out.println("<h1> Ha ingreso correctamente .... </h1>" + usuario.getApellido());
 		DAOFactory factory = new JDBCDAOFactory();
 		usuario = factory.getUsuarioDAO().logIn(usuario);
 		HttpSession session = request.getSession();
 		List<Telefono> telefonos = new ArrayList<Telefono>();
 		List<Telefono> telfs = new ArrayList<Telefono>();
-		if(usuario.getCedula()!=null) {
-			telefon.setUsuario(usuario.getCedula());
 			
-			TelefonoDAO t= DAOFactory.getFactory().getTelefonoDAO();
-			telefonos=t.buscarPorIdTelfono(usuario.getCedula());
-			for(Telefono telefono : telefonos) {
-				telfs.add(telefono);
-			}
-		}
+		
 	
 		if (usuario != null) {
 			try {
+				telefon.setUsuario(usuario.getCedula());
+				
+				TelefonoDAO t= DAOFactory.getFactory().getTelefonoDAO();
+				telefonos=t.buscarPorIdTelfono(usuario.getCedula());
+				for(Telefono telefono : telefonos) {
+					telfs.add(telefono);
+				}
 
 				session = request.getSession(true);
 				session.setAttribute("sesion", "logueado");
@@ -79,15 +79,18 @@ public class SesionController extends HttpServlet {
 
 				url = "/JSPs/usuario.jsp";
 			} catch (Exception e) {
+				System.out.println("ingreso aqui 11111");
 				// TODO: handle exception
-				url = "/JSPs/error.jsp";
+				url = "/Proyectov6/index.html";
 			}
 			getServletContext().getRequestDispatcher(url).forward(request, response);
 
 		} else {
 			session.setAttribute("sesion", "invalido");
-			out.println("USUARIO:  " + session.getAttribute("sesion"));
-
+			out.println("lorem innjdnvajskncdjksno te ");
+			response.sendRedirect("/Proyectov6/JSPs/logIn.jsp");
+		
+	
 		}
 	}
 
