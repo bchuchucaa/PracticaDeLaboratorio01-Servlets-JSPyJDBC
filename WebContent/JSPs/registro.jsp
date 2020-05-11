@@ -106,7 +106,7 @@ function soloLetras(e) {
 					<div class="container-login100-form-btn m-t-32">
 
 						 <input class="login100-form-btn" type="submit" value="Registrarse">
-						  <input class="login100-form-btn" type="reset" value="Regresar">
+						  <input class="login100-form-btn" type="reset" value="Limpiar">
 					</div>
 
 				</form>

@@ -64,7 +64,6 @@
 	<header id="header">
 	<nav class="links" style="--items: 5;">
 		<a href="/Proyectov6/index.html">Inicio</a>
-		<a href="LogoutServlet">Logout</a>
 		<span class="line"></span>
 	</nav>
 </header>

@@ -98,15 +98,15 @@ textarea:focus:-moz-placeholder { color:transparent; }
 textarea:focus::-moz-placeholder { color:transparent; }
 textarea:focus:-ms-input-placeholder { color:transparent; }
 
-input::-webkit-input-placeholder { color: #555555;}
-input:-moz-placeholder { color: #555555;}
-input::-moz-placeholder { color: #555555;}
-input:-ms-input-placeholder { color: #555555;}
+input::-webkit-input-placeholder { color: #fdfcff;}
+input:-moz-placeholder { color: #fdfcff;}
+input::-moz-placeholder { color: #fdfcff;}
+input:-ms-input-placeholder { color: #fdfcff;}
 
-textarea::-webkit-input-placeholder { color: #555555;}
-textarea:-moz-placeholder { color: #555555;}
-textarea::-moz-placeholder { color: #555555;}
-textarea:-ms-input-placeholder { color: #555555;}
+textarea::-webkit-input-placeholder { color: #fdfcff;}
+textarea:-moz-placeholder { color: #fdfcff;}
+textarea::-moz-placeholder { color: #fdfcff;}
+textarea:-ms-input-placeholder { color: #fdfcff;}
 
 label {
   margin: 0;
@@ -290,7 +290,7 @@ iframe {
 .focus-input100::after {
   font-family: Linearicons-Free;
   font-size: 18px;
-  color: #999999;
+  color: #fdfcff;
 
   content: attr(data-placeholder);
   display: block;
@@ -387,7 +387,7 @@ iframe {
   width: 100%;
   height: 100%;
   border-radius: 21px;
-  background-color: #555555;
+  background-color: #fdfcff;
   top: 0;
   left: 0;
   opacity: 0;
@@ -466,13 +466,13 @@ iframe {
 
 .alert-validate:hover:before {
   visibility: visible;
-  opacity: 1;
+  opacity: 0;
 }
 
 @media (max-width: 992px) {
   .alert-validate::before {
     visibility: visible;
-    opacity: 1;
+    opacity: 0;
   }
 }
 
