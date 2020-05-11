@@ -114,6 +114,27 @@ public class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, String> implements U
 				
 				return usuario;
 	}
+
+	@Override
+	public Usuario buscarCorreo(Usuario us) {
+		// TODO Auto-generated method stub
+		String correo= us.getCorreo();
+		System.out.println("esta es la cedula jdbc "+ correo);
+		Usuario usuario=null;
+		ResultSet rs = conexionUno.query("SELECT * FROM Usuario WHERE usu_correo ='"+correo+"'");
+		
+		try {
+			if(rs != null & rs.next()) {
+				usuario = new Usuario(rs.getString("usu_cedula"), rs.getString("usu_nombre"),rs.getString("usu_apellido"),rs.getString("usu_correo"),rs.getString("usu_contrasena"));
+			}
+		}catch (SQLException e) {
+			System.out.println(">>>WARNING (JDBCUsuarioDAO:read): " + e.getMessage());
+			System.out.println(">>ESTE ES UN MENSAJE DEL METODO LOGIN>>");
+		}
+		// TODO Auto-generated method stub
+		
+		return usuario;
+	}
 	
 
 }

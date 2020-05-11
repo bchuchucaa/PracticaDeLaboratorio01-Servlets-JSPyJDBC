@@ -82,7 +82,7 @@ function soloLetras(e) {
 	<header> </header>
 
 	<header id="header"> <nav class="links" style="--items: 5;">
-	<a href="#">Home</a> <a href="#">${p1.nombre}</a> <a href="#">${p1.apellido}</a>
+	<a href="/Proyectov6/index.html"">Home</a> <a href="#">${p1.nombre}</a> <a href="#">${p1.apellido}</a>
 	<a href="mailto:${p1.correo}">Enviar correo a : ${p1.correo}</a> <a
 		href="LogoutServlet">Logout</a> <span class="line"></span> </nav> </header>
 

@@ -6,58 +6,83 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/Proyectov6/css/usuario/util.css">
-	<link rel="stylesheet" type="text/css" href="/Proyectov6/css/usuario/main.css">
-	
-		<link rel="stylesheet" type="text/css" href="/Proyectov6/css/usuario/tabla.css">
-				<link rel="stylesheet" type="text/css" href="/Proyectov6/css/usuario/menu.css">
-<title>Insert title here</title>
+	<link rel="icon" type="image/png" href="…">
+			<link rel="stylesheet"
+				href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+				<link rel="stylesheet"
+					href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+					<link rel="stylesheet"
+						href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+						<link rel="stylesheet" href="/Proyectov6/css/agenda.css">
+							<!--===============================================================================================-->
+							<link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+							<!--===============================================================================================-->
+							<link rel="stylesheet" type="text/css"
+								href="vendor/bootstrap/css/bootstrap.min.css">
+								<!--===============================================================================================-->
+								<link rel="stylesheet" type="text/css"
+									href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+									<!--===============================================================================================-->
+									<link rel="stylesheet" type="text/css"
+										href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+										<!--===============================================================================================-->
+										<link rel="stylesheet" type="text/css"
+											href="vendor/animate/animate.css">
+											<!--===============================================================================================-->
+											<link rel="stylesheet" type="text/css"
+												href="vendor/css-hamburgers/hamburgers.min.css">
+												<!--===============================================================================================-->
+												<link rel="stylesheet" type="text/css"
+													href="vendor/animsition/css/animsition.min.css">
+													<!--===============================================================================================-->
+													<link rel="stylesheet" type="text/css"
+														href="vendor/select2/select2.min.css">
+														<!--===============================================================================================-->
+														<link rel="stylesheet" type="text/css"
+															href="vendor/daterangepicker/daterangepicker.css">
+															<!--===============================================================================================-->
+															<link rel="stylesheet" type="text/css"
+																href="/Proyectov6/css/usuario/util.css">
+																<link rel="stylesheet" type="text/css"
+																	href="/Proyectov6/css/usuario/main.css">
+
+																	<link rel="stylesheet" type="text/css"
+																		href="/Proyectov6/css/usuario/tabla.css">
+																		<link rel="stylesheet" type="text/css" href="/Proyectov6/css/usuario/menu.css">
+																		<script>
+																				function numeros() {
+																					var z = document.getElementById("url").value;
+																					if (!/^[0-9]+$/.test(z)) {
+																						alert("Porfavor ingresa solo caracteres numericos para tu numero de Cedula(Permitidos: 0-9)");
+																						document.getElementById("url").value = "";
+																					}
+																				}
+																			</script>
+<title>Busqueda</title>
 </head>
 <body>
 	<header id="header">
 	<nav class="links" style="--items: 5;">
 		<a href="/Proyectov6/index.html">Inicio</a>
-		<a href="#">${p1.nombre}</a>
-		
-		<a href="#">${p1.apellido}</a>
-		<a href="mailto:${p1.correo}">Enviar correo a : ${p1.correo}</a>
 		<a href="LogoutServlet">Logout</a>
 		<span class="line"></span>
 	</nav>
 </header>
-<br><br><br><br>
+<br><br>
  
 <form action="/Proyectov6/BuscarUsuario" autocomplete="off">
     <fieldset class="url">
-      <input id="url" type="text" name="usuario" required>
-      <label for="url"><i class="fa fa-search" aria-hidden="true"></i> Ingrese correo o cedula</label>
+      <input id="url" type="text" name="usuario" onkeypress="return numeros(this)" required>
+      <label for="url"><i class="fa fa-search" aria-hidden="true"></i> Ingrese cedula</label>
       <div class="after"></div>
     </fieldset>
     <fieldset class="enter">
       <input type="submit" value="Buscar"/>
     </fieldset>
   </form>
+  
 
+<br><br><br><br><br><br>
 <c:set var="p1" value="${requestScope['telefonos']}" />
 
 		<table class=container>

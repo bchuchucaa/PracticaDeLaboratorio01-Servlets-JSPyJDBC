@@ -1,4 +1,4 @@
-package privada.controler;
+package publico.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -60,7 +60,7 @@ public class BuscarUsuario extends HttpServlet {
 	
 			getServletContext().getRequestDispatcher(url).forward(request, response);
 		}else {
-			out.println("Lo sienteo no encontramos resultados");
+			response.sendRedirect("/Proyectov6/JSPs/error.jsp");
 			
 		}
 		

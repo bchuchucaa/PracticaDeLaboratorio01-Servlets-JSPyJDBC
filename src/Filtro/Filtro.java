@@ -19,7 +19,7 @@ import org.apache.catalina.Session;
 /**
  * Servlet Filter implementation class Filtro
  */
-@WebFilter({"/TelefonoController","/EliminarTelefono"})
+@WebFilter({"/TelefonoController","/EliminarTelefono","/ActualizarTelefono"})
 public class Filtro implements Filter {
 
     /**

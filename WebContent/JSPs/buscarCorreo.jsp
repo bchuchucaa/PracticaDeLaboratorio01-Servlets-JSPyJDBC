@@ -1,15 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+    pageEncoding="UTF-8"%>
+  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    
+<!DOCTYPE html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta charset="utf-8">
-		<link rel="icon" type="image/png" href="…">
+<meta charset="UTF-8">
+	<link rel="icon" type="image/png" href="…">
 			<link rel="stylesheet"
 				href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 				<link rel="stylesheet"
@@ -51,65 +48,68 @@
 
 																	<link rel="stylesheet" type="text/css"
 																		href="/Proyectov6/css/usuario/tabla.css">
-																		<link rel="stylesheet" type="text/css"
-																			href="/Proyectov6/css/usuario/menu.css">
-																			<script>
+																		<link rel="stylesheet" type="text/css" href="/Proyectov6/css/usuario/menu.css">
+																		<script>
 																				function numeros() {
-																					var z = document.getElementById("url").value;
+																					var z = document.getElementById("cedula").value;
 																					if (!/^[0-9]+$/.test(z)) {
-																						alert("Porfavor ingresa solo caracteres numericos para tu Cedula(Permitidos: 0-9)");
-																						document.getElementById("url").value = "";
+																						alert("Porfavor ingresa solo caracteres numericos para tu numero(Permitidos: 0-9)");
+																						document.getElementById("cedula").value = "";
 																					}
 																				}
 																			</script>
-																			<title>Agenda</title>
-																		
+<title>Busqueda</title>
 </head>
 <body>
-	<header id="header"> <nav class="links" style="--items: 5;">
-	<a href="/Proyectov6/index.html">Home</a> 
-	<a href="LogoutServlet">Logout</a> <span class="line"></span> </nav>
-
-	<div class="menu">
-		<!-- Menu icon -->
-		<div class="icon-close">
-			<img src="https://imgur.com/download/GcHTJg2">
-		</div>
+	<header id="header">
+	<nav class="links" style="--items: 5;">
+		<a href="/Proyectov6/index.html">Inicio</a>
+		<a href="#">${p1.nombre}</a>
 		
+		<a href="#">${p1.apellido}</a>
+		<a href="mailto:${p1.correo}">Enviar correo a : ${p1.correo}</a>
+		<a href="LogoutServlet">Logout</a>
+		<span class="line"></span>
+	</nav>
+</header>
+<br><br>
+ 
+<form action="/Proyectov6/BuscarPorCorreo" autocomplete="off">
+    <fieldset class="url">
+      <input id="url" type="email" name="usuario" required>
+      <label for="url"><i class="fa fa-search" aria-hidden="true"></i> Ingrese el correo</label>
+      <div class="after"></div>
+    </fieldset>
+    <fieldset class="enter">
+      <input type="submit" value="Buscar"/>
+    </fieldset>
+  </form>
+  
 
-	
-	
-	</header>
-		<form action="/Proyectov6/BuscarUsuario" autocomplete="off">
-		<fieldset class="">
-			<input id="url" type="text"  onkeyup="return numeros(this)"  name="usuario" ><label
-				for="url"><i class="fa fa-search" aria-hidden="true"></i>
-				Ingrese cedula</label>
-			<div class="after"></div>
-		</fieldset>
-		<fieldset class="enter">
-			<input type="submit" value="Buscar" />
-		</fieldset>
-	</form>
+<br><br><br><br><br><br>
+<c:set var="p1" value="${requestScope['telefonos']}" />
 
-	<br><br><br><br><br><br><br><br><br><br>
-											<h2>Visualizacion Agenda</h2> <c:set var="p1"
-												value="${requestScope['usuarios']}" />
+		<table class=container>
+				<tr>
+					<td>Usuario</td>
+					<td>${userexistente.nombre}</td>
+					<td><a href="mailto:${userexistente.correo}">Enviar correo<i class="fa fa-envelope-o" style="font-size:48px;color:red"></i></a></td>
+					
+				</tr>
+			<c:forEach items="${telefonos}" var="telefonos">
+				
+				
+				<tr>
+					<td>${telefonos.tipo}</td>
+					<td>${telefonos.numero}</td>
+					<td><a href="tel:${telefonos.numero}">Contactar usuario<i class="fa fa-mobile-phone" style="font-size:48px;color:red"></i></a></td>
+					
+			
+				</tr>
+				
+			</c:forEach>
+		</table>
+		<h1>listo</h1>
 
-											<table class="container">
-												<tr>
-													<td>Nombre</td>
-													<td>Apellido</td>
-
-												</tr>
-												<c:forEach items="${usuarios}" var="usuario">
-													<tr>
-														<td>${usuario.nombre}</td>
-														<td>${usuario.apellido}</td>
-													</tr>
-
-
-												</c:forEach>
-											</table>
 </body>
 </html>

@@ -29,6 +29,8 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/Proyectov6/css/util.css">
 	<link rel="stylesheet" type="text/css" href="/Proyectov6/css/main.css">
+																			<link rel="stylesheet" type="text/css" href="/Proyectov6/css/usuario/menu.css">
+	
 	<script>
 	function numeros(){
 
@@ -60,6 +62,13 @@ function soloLetras(e) {
 <title>Registro de usuario</title>
 </head>
 <body>
+	<header id="header">
+	<nav class="links" style="--items: 5;">
+		<a href="/Proyectov6/index.html">Inicio</a>
+		<span class="line"></span>
+	</nav>
+</header>
+<br><br>
 <form action="/Proyectov6/RegistroController" method="post" id="registro">
 <div class="limiter">
 		<div class="container-login100" style="background-image: url('/Proyectov6/img/bg-01.jpg');">

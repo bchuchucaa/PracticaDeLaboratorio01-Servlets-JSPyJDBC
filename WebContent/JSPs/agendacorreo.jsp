@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+ <?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -55,10 +55,10 @@
 																			href="/Proyectov6/css/usuario/menu.css">
 																			<script>
 																				function numeros() {
-																					var z = document.getElementById("url").value;
+																					var z = document.getElementById("cedula").value;
 																					if (!/^[0-9]+$/.test(z)) {
-																						alert("Porfavor ingresa solo caracteres numericos para tu Cedula(Permitidos: 0-9)");
-																						document.getElementById("url").value = "";
+																						alert("Porfavor ingresa solo caracteres numericos para tu numero(Permitidos: 0-9)");
+																						document.getElementById("cedula").value = "";
 																					}
 																				}
 																			</script>
@@ -80,11 +80,11 @@
 	
 	
 	</header>
-		<form action="/Proyectov6/BuscarUsuario" autocomplete="off">
+		<form action="/Proyectov6/BuscarPorCorreo" autocomplete="off">
 		<fieldset class="">
-			<input id="url" type="text"  onkeyup="return numeros(this)"  name="usuario" ><label
+			<input id="url" type="email"  onkeyup="return numeros(this)"  name="usuario" ><label
 				for="url"><i class="fa fa-search" aria-hidden="true"></i>
-				Ingrese cedula</label>
+				Ingrese correo</label>
 			<div class="after"></div>
 		</fieldset>
 		<fieldset class="enter">
