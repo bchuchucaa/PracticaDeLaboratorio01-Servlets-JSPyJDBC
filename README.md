@@ -45,3 +45,17 @@ En este sistema se han usado patrones de diseño Modelo Vista Controlador y el p
 •	Jerarquia del sistema:
 ![alt text](/images/3.png)
 
+Explicacion:
+
+Private: Contiene todos los controladores que se encargan de realizar las acciones de los usuarios logueados
+DAO: Proporcionará los métodos necesarios para insertar, actualizar, borrar y consultar la información;
+Controller: Servlets que se encargan de controlar las acciones del usuario.
+JDBC: Se encarga de realizar las actualizaciones, inserciones y eliminar en la base de datos
+Public: Contiene los controladores de búsqueda a los que un usuario anónimo puede acceder
+Filtro: Aplicación para el control de sesiones de la parte privada.
+CSS: Estilos css aplicados sobre las distintas paginas html y jsp.
+JSP:consta con las paginas para la parte privada al que solo el usuario registrado tiene acceso
+
+•	Base de datos usada: MySQL
+Nombre: agenda
+Tablas usuario
