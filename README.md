@@ -61,3 +61,39 @@ Nombre: agenda
 Tablas usuario
 ![alt text](/images/5.png)
 ![alt text](/images/6.png)
+
+
+Requisitos
+Los usuarios pueden registrarse en la aplicación a través de un formulario de creación de cuentas.
+ ![alt text](/images/7.png)
+•	Un usuario puede iniciar sesión usando su correo y contraseña
+![alt text](/images/8.png)
+•	Una vez iniciado sesión el usuario podrá:
+o	Registrar, modificar, eliminar, buscar y listar sus teléfonos
+![alt text](/images/9.png)
+Listar los números de teléfono de un usuario usando su número de cédula o correo electrónico
+![alt text](/images/10.png)
+
+Podrá llamar o enviar un correo electrónico desde el sistema usando aplicaciones externas.
+
+		Los correos y llamadas se realizarán mediante los iconos que se presentan en la interfaz 			independientemente de la aplicación externa que tenga el sistema del usuario
+
+Los datos siempre deberán ser validados cuando se trabaje a través de formularios.
+
+		Los formularios validan los campos requeridos como lo son el numero de cedula, correo y otros 			campos para el adecuado ingreso de la información.
+3.	Realizar varios commits en la herramienta GitHub que demuestren el desarrollo de la aplicación.
+![alt text](/images/11.png)
+1.	Implementar el README del repositorio del proyecto con la misma información del informe de la práctica
+RESULTADO(S) OBTENIDO(S):
+•	Maneja diferentes formatos para el intercambio de datos entre aplicaciones.
+
+CONCLUSIONES:
+
+	La implementación de el sistema propuesto nos ayuda a mejorar y a complementar los conocimientos 	adquiridos en clase, como es la aplicación de patrones como MVC y DAO ya que son compatibles logrando 	una mejor estructura del sistema para el cumplimiento de los requerimientos propuestos.
+ 
+ RECOMENDACIONES:
+•	Aplicar conceptos de interacción humano máquina para el desarrollo de la GUI.
+•	Estructurar correctamente el sistema.
+
+![alt text](/images/12.png)
+
