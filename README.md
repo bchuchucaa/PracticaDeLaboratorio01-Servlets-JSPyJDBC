@@ -59,3 +59,5 @@ JSP:consta con las paginas para la parte privada al que solo el usuario registra
 •	Base de datos usada: MySQL
 Nombre: agenda
 Tablas usuario
+![alt text](/images/5.png)
+![alt text](/images/6.png)
