@@ -1,4 +1,5 @@
 # PracticaDeLaboratorio01-Servlets-JSPyJDBC
+ ![alt text](/images/13.png)
 TÍTULO PRÁCTICA: Desarrollo de una aplicación JEE basado en Servlets, JSP y JDBC
 para el intercambio de datos en un modelo de tres capas aplicando los patrones diseño de software MVC y DAO
 
